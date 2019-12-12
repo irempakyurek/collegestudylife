@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "374504113392",
+    "firebase_url": "https://collegestudylife.firebaseio.com",
+    "project_id": "collegestudylife",
+    "storage_bucket": "collegestudylife.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374504113392:android:ddddef6c7bc57516d82e35",
+        "android_client_info": {
+          "package_name": "com.example.team.collegestudylife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374504113392-h48onr0fsvl9md3kqtfa57e1upi97ef6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAimwprmIsSP4MyTMiXYs5JG1ZI4tYr6b0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374504113392-h48onr0fsvl9md3kqtfa57e1upi97ef6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
