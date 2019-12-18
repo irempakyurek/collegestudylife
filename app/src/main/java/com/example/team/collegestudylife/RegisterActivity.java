@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -54,14 +55,18 @@ public class RegisterActivity extends AppCompatActivity {
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            String user_id = mAuth.getCurrentUser().getUid();
-                            DatabaseReference current_user_db = mDatabase.child(user_id);
-                            current_user_db.child("Username").setValue(username);
-                            current_user_db.child("Image").setValue("Default");
-                            Toast.makeText(RegisterActivity.this, "Registeration Succesful", Toast.LENGTH_SHORT).show();
-                            Intent regIntent = new Intent(RegisterActivity.this, ProfileActivity.class);
-                            regIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(regIntent);
+                            FirebaseUser mFirebaseUser = mAuth.getCurrentUser();
+                            if(mFirebaseUser != null) {
+                                String user_id = mFirebaseUser.getUid(); //Do what you need to do with the id
+
+                                DatabaseReference current_user_db = mDatabase.child(user_id);
+                                current_user_db.child("Username").setValue(username);
+                                current_user_db.child("Image").setValue("Default");
+                                Toast.makeText(RegisterActivity.this, "Registeration Succesful", Toast.LENGTH_SHORT).show();
+                                Intent regIntent = new Intent(RegisterActivity.this, ProfileActivity.class);
+                                regIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(regIntent);
+                            }
                         }
                     });
                 }else {

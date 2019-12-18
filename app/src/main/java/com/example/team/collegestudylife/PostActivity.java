@@ -81,7 +81,7 @@ public class PostActivity extends AppCompatActivity {
 
                             @SuppressWarnings("VisibleForTests")
                             //getting the post image download url
-                            final Uri downloadUrl = taskSnapshot.getDowloadUrl();
+                            final Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
                             Toast.makeText(getApplicationContext(), "Succesfully Uploaded", Toast.LENGTH_SHORT).show();
                             final DatabaseReference newPost = databaseRef.push();
                             //adding post contents to database reference

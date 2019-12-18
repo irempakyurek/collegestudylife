@@ -70,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             @SuppressWarnings("VisibleForTests")
-                            String downloadUrl = taskSnapshot.getDownloadUrl().toString();
+                            String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
                             mDatabaseUsers.child(userID).child("name").setValue(name);
                             mDatabaseUsers.child(userID).child("image").setValue(downloadUrl);
 
